@@ -28,7 +28,11 @@ app.get('/', (req, res) => {
 
 io.on("connection", function (uniqueSocket) {
     console.log("A user Connected");
+
+    uniqueSocket.on("churan", function () {
+        io.emit("churan paapdi");
 })
+});
 
 server.listen(3000, function () {
     console.log('Server is running on port 3000');
